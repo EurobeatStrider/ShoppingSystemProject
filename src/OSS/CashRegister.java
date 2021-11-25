@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 public class CashRegister {
     ArrayList<Item> currItems = new ArrayList<>();
 
@@ -43,7 +44,7 @@ public class CashRegister {
         return newItem;
     }
 
-    // Helper Functions
+    // Helper Function
     static boolean isBulkStringtoBool(String isBulk){
         switch(isBulk.toLowerCase().trim()){
             case "true":
