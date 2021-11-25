@@ -16,6 +16,9 @@ class ReadInventory{
         int iTemp;
         String idTemp;
         String expDate;
+
+        Boolean tempIsBulk;
+
         File Inventory = new File("Inventory.txt");
         Scanner scInventory = new Scanner(Inventory);
         while(scInventory.hasNextLine()){
@@ -24,7 +27,8 @@ class ReadInventory{
             dTemp = Double.parseDouble(itemTemp[1]);
             iTemp = Integer.parseInt(itemTemp[3]);
             expDate = itemTemp[4];
-            TempArrl.add(count,new Item(idTemp,dTemp,itemTemp[2],iTemp, expDate));
+            tempIsBulk = (CashRegister.isBulkStringtoBool(itemTemp[5]));
+            TempArrl.add(count,new Item(idTemp,dTemp,itemTemp[2],iTemp, expDate, tempIsBulk));
             count++;
         }
         scInventory.close();

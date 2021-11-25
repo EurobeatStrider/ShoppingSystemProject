@@ -15,6 +15,8 @@ public class CashRegister {
         String tempName;
         int tempAmount;
         String tempExpDate;
+        Boolean tempIsBulk;
+
         Item newItem = null;
 
         File Inventory = new File("Inventory.txt");
@@ -29,7 +31,9 @@ public class CashRegister {
                 tempName = tempItem[2];
                 tempAmount = Integer.parseInt(tempItem[3]);
                 tempExpDate = tempItem[4];
-                newItem = new Item(Integer.toString(tempId), tempPrice, tempName, tempAmount, tempExpDate);
+                tempIsBulk = isBulkStringtoBool(tempItem[5]);
+
+                newItem = new Item(Integer.toString(tempId), tempPrice, tempName, tempAmount, tempExpDate, tempIsBulk);
                 break;
             }
         }
@@ -38,5 +42,24 @@ public class CashRegister {
         }
         return newItem;
     }
+
+    // Helper Functions
+    static boolean isBulkStringtoBool(String isBulk){
+        switch(isBulk.toLowerCase().trim()){
+            case "true":
+            case "1":
+                return true;
+
+            case "false":
+            case "0":
+                return false;
+
+            default:
+                System.out.println("Cannot decipher " + isBulk + " as Boolean value.");
+                return false;
+        }
+    }
+
 }
+
 
