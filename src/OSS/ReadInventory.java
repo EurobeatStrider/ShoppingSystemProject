@@ -36,14 +36,16 @@ class ReadInventory{
     }
 
     // Helper Function
-    static boolean isBulkStringtoBool(String isBulk){
+    boolean isBulkStringtoBool(String isBulk){
         switch(isBulk.toLowerCase().trim()){
             case "true":
             case "1":
+            case "YES":
                 return true;
 
             case "false":
             case "0":
+            case "NO":
                 return false;
 
             default:
