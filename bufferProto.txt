@@ -74,10 +74,10 @@ class bankerThread implements Runnable {
 
     private void writeToFile() throws IOException
     {
-        PrintWriter clerk = new PrintWriter("clients.txt");
+        PrintWriter replace = new PrintWriter("clients.txt");
         for(bankCustomer current : clients)
         {
-            clerk.println(current.writeInfo());
+            replace.println(current.writeInfo());
         }
         clerk.close();
     }
