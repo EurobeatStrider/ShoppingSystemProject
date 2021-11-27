@@ -27,11 +27,28 @@ class ReadInventory{
             dTemp = Double.parseDouble(itemTemp[1]);
             iTemp = Integer.parseInt(itemTemp[3]);
             expDate = itemTemp[4];
-            tempIsBulk = (CashRegister.isBulkStringtoBool(itemTemp[5]));
+            tempIsBulk = (isBulkStringtoBool(itemTemp[5]));
             TempArrl.add(count,new Item(idTemp,dTemp,itemTemp[2],iTemp, expDate, tempIsBulk));
             count++;
         }
         scInventory.close();
         return (TempArrl);
+    }
+
+    // Helper Function
+    static boolean isBulkStringtoBool(String isBulk){
+        switch(isBulk.toLowerCase().trim()){
+            case "true":
+            case "1":
+                return true;
+
+            case "false":
+            case "0":
+                return false;
+
+            default:
+                System.out.println("Cannot decipher " + isBulk + " as Boolean value.");
+                return false;
+        }
     }
 }
