@@ -25,7 +25,7 @@ public class ShoppingCart {
             }
         }
         if(!existing) {
-            Item addTo = new Item(matching.getItemID(), matching.getPrice(), matching.getName(), 1, matching.getExpDate());
+            Item addTo = new Item(matching.getItemID(), matching.getPrice(), matching.getName(), 1, matching.getExpDate(), matching.getIsBulk());
             this.Cart.add(addTo);
         }
     }
@@ -51,7 +51,7 @@ public class ShoppingCart {
             if(matching.getName() == items.getName())
                 return items;
         }
-        return new Item("ERROR", 0.00, "ERROR", 0, "ERROR");
+        return new Item("ERROR", 0.00, "ERROR", 0, "ERROR", null);
     }
 
     public void emptyCart(){

@@ -10,6 +10,8 @@ public class Item {
     private int numberOf = 0;
     private String expDate;
 
+    private Boolean isBulk;
+
 
     public double getPrice() {
         return price;
@@ -42,12 +44,13 @@ public class Item {
         numberOf-=quantity;
     }
 
-    public Item(String itemID, double price, String name, int numberOf, String expDate) {
+    public Item(String itemID, double price, String name, int numberOf, String expDate, Boolean isBulk) {
         this.itemID = itemID;
         this.expDate = expDate;
         this.price = price;
         this.name = name;
         this.numberOf = numberOf;
+        this.isBulk = isBulk;
     }
 
     public String getItemID() {
@@ -57,6 +60,8 @@ public class Item {
     public String getExpDate() {
         return expDate;
     }
+
+    public Boolean getIsBulk() { return isBulk; }
 
     @Override
     public String toString() {
